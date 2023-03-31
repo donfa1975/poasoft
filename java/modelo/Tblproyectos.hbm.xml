@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 17/03/2023 20:30:04 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modelo.Tblproyectos" table="tblproyectos" catalog="bddpoasoft" optimistic-lock="version">
+        <id name="idtblproyectos" type="java.lang.Integer">
+            <column name="idtblproyectos" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="tblprogramas" class="modelo.Tblprogramas" fetch="select">
+            <column name="idprograma" />
+        </many-to-one>
+        <property name="proyecto" type="string">
+            <column name="proyecto" length="150" />
+        </property>
+        <property name="meta" type="string">
+            <column name="meta" length="150" />
+        </property>
+        <property name="indicadores" type="string">
+            <column name="indicadores" length="150" />
+        </property>
+        <property name="tiempo" type="string">
+            <column name="tiempo" length="45" />
+        </property>
+        <property name="tipo" type="string">
+            <column name="tipo" length="45" />
+        </property>
+        <property name="iddirecciones" type="java.lang.Integer">
+            <column name="iddirecciones" />
+        </property>
+        <set name="tblactividadeses" table="tblactividades" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idproyecto" />
+            </key>
+            <one-to-many class="modelo.Tblactividades" />
+        </set>
+    </class>
+</hibernate-mapping>

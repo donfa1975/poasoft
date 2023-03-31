@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 17/03/2023 20:30:04 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modelo.Tblpagos" table="tblpagos" catalog="bddpoasoft" optimistic-lock="version">
+        <id name="idtblpagos" type="int">
+            <column name="idtblpagos" />
+            <generator class="assigned" />
+        </id>
+        <property name="pago" type="big_decimal">
+            <column name="pago" precision="8" />
+        </property>
+        <property name="mes" type="java.lang.Integer">
+            <column name="mes" />
+        </property>
+        <property name="anio" type="date">
+            <column name="anio" length="4" />
+        </property>
+        <property name="idactividad" type="java.lang.Integer">
+            <column name="idactividad" />
+        </property>
+        <set name="tblactividadeses" table="tblactividades" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idpago" />
+            </key>
+            <one-to-many class="modelo.Tblactividades" />
+        </set>
+    </class>
+</hibernate-mapping>

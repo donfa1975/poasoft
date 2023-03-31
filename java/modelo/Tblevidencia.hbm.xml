@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 17/03/2023 20:30:04 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modelo.Tblevidencia" table="tblevidencia" catalog="bddpoasoft" optimistic-lock="version">
+        <id name="idevidencia" type="int">
+            <column name="idevidencia" />
+            <generator class="assigned" />
+        </id>
+        <property name="idactividad" type="java.lang.Integer">
+            <column name="idactividad" />
+        </property>
+        <property name="archivo" type="string">
+            <column name="archivo" length="250" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="250" />
+        </property>
+        <property name="fecha" type="date">
+            <column name="fecha" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>

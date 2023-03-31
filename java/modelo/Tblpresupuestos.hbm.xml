@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 17/03/2023 20:30:04 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modelo.Tblpresupuestos" table="tblpresupuestos" catalog="bddpoasoft" optimistic-lock="version">
+        <id name="idtblpresupuesto" type="java.lang.Integer">
+            <column name="idtblpresupuesto" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="tblactividades" class="modelo.Tblactividades" fetch="select">
+            <column name="idactividad" />
+        </many-to-one>
+        <many-to-one name="tblparpre" class="modelo.Tblparpre" fetch="select">
+            <column name="idpartida" />
+        </many-to-one>
+        <property name="monto" type="big_decimal">
+            <column name="monto" precision="8" />
+        </property>
+    </class>
+</hibernate-mapping>

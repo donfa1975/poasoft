@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 17/03/2023 20:30:04 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modelo.Tblprogramas" table="tblprogramas" catalog="bddpoasoft" optimistic-lock="version">
+        <id name="idtblprogramas" type="java.lang.Integer">
+            <column name="idtblprogramas" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="tblobjetivos" class="modelo.Tblobjetivos" fetch="select">
+            <column name="idobjetivo" />
+        </many-to-one>
+        <property name="programa" type="string">
+            <column name="programa" length="150" />
+        </property>
+        <property name="tipo" type="string">
+            <column name="tipo" length="45" />
+        </property>
+        <property name="peso" type="java.lang.Integer">
+            <column name="peso" />
+        </property>
+        <property name="codigopoa" type="string">
+            <column name="codigopoa" length="45" />
+        </property>
+        <set name="tblproyectoses" table="tblproyectos" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idprograma" />
+            </key>
+            <one-to-many class="modelo.Tblproyectos" />
+        </set>
+    </class>
+</hibernate-mapping>

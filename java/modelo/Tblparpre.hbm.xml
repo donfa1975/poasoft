@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 17/03/2023 20:30:04 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modelo.Tblparpre" table="tblparpre" catalog="bddpoasoft" optimistic-lock="version">
+        <id name="idtblparpre" type="int">
+            <column name="idtblparpre" />
+            <generator class="assigned" />
+        </id>
+        <property name="partida" type="string">
+            <column name="partida" length="150" />
+        </property>
+        <property name="activo" type="java.lang.Integer">
+            <column name="activo" />
+        </property>
+        <set name="tblpresupuestoses" table="tblpresupuestos" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idpartida" />
+            </key>
+            <one-to-many class="modelo.Tblpresupuestos" />
+        </set>
+    </class>
+</hibernate-mapping>

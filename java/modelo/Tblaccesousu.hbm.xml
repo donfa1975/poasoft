@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 17/03/2023 20:30:04 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modelo.Tblaccesousu" table="tblaccesousu" catalog="bddpoasoft" optimistic-lock="version">
+        <id name="idtblaccesousu" type="java.lang.Integer">
+            <column name="idtblaccesousu" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="tblopciones" class="modelo.Tblopciones" fetch="select">
+            <column name="idopcion" />
+        </many-to-one>
+        <many-to-one name="tblusuarios" class="modelo.Tblusuarios" fetch="select">
+            <column name="idusuario" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>
